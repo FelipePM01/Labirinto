@@ -1,12 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Game.gd" type="Script" id=2]
-[ext_resource path="res://SalaTemplate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Templates/SalaTemplate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Rooms/Sala1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sprites/Rugs/RugDown.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Rugs/RugLeft.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Rugs/RugUp.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Rugs/RugRed.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Rugs/RugRight.png" type="Texture" id=9]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
+rugs = [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ) ]
+rooms = [ ExtResource( 4 ), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ]
 UI = NodePath("Canvas/UI")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 482.0
+margin_bottom = 321.0
+color = Color( 0.192157, 0.211765, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 

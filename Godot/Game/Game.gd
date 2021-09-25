@@ -1,6 +1,6 @@
 extends Node2D
 
-enum { LEFT, RIGHT, UP, DOWN, NOTHING}
+enum { LEFT = 0, RIGHT, UP, DOWN, NOTHING}
 var arrows = [
 DOWN, RIGHT, RIGHT, LEFT, LEFT,
 DOWN, UP, LEFT, RIGHT, UP,
@@ -9,8 +9,10 @@ DOWN, RIGHT, UP, UP, UP,
 UP, UP, LEFT, UP, NOTHING]
 
 var current_room = 1
-export var rooms = []
+var current_room_scene = null
 
+export(Array, Texture) var rugs
+export(Array, PackedScene) var rooms
 export(NodePath) var UI
 
 
@@ -22,16 +24,27 @@ func _ready():
 
 
 func change_room(next_room):
+	# room events
 	if ((next_room == 1 and Global.jogador == 1) or 
 		(next_room == 15 and Global.jogador == 2)):
 		get_node(UI).enable_crystal('main')
 	elif next_room == 16:
 		get_node(UI).enable_crystal('extra')
-	
 	get_node(UI).enable_password(next_room == 25)
 	
+	# remove current room
+	if current_room_scene != null:
+		current_room_scene.queue_free()
 	
-	pass # TODO mudar a sala mesmo
+	# create new room
+	var new_instance = rooms[current_room].instance()
+	add_child(new_instance)
+	move_child(new_instance, get_child_count()-1)
+	current_room_scene = new_instance
+	if Global.jogador == 1:
+		new_instance.setup(rugs[arrows[current_room]], current_room)
+	else:
+		new_instance.setup(rugs[4], current_room)
 
 
 func blue_power(current_room):
@@ -45,14 +58,17 @@ func blue_power(current_room):
 
 
 func red_power(current_room):
-	return arrow_to_room(arrows[current_room-1],current_room)
+	return arrow_to_room(arrows[current_room-1], current_room)
+
 
 func left_to_right(room):
 	if ((room-1)/5)%2==0:
 		return 1
 	else:
 		return -1
-func arrow_to_room(arrow,current_room):
+
+
+func arrow_to_room(arrow, current_room):
 	var left_to_right = left_to_right(current_room)
 	match (arrow):
 		LEFT:
