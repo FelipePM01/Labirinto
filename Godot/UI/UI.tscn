@@ -182,3 +182,20 @@ __meta__ = {
 }
 [connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/MainCrystal" to="." method="_on_MainCrystal_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/ExtraCrystal" to="." method="_on_ExtraCrystal_button_up"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fade = SubResource( 1 )
+anims/SwipeLeft = SubResource( 2 )
+anims/SwipeRight = SubResource( 3 )
+
+[node name="Foreground" type="ColorRect" parent="AnimationPlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.180392, 0.133333, 0.184314, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="MainCrystal" to="." method="_on_MainCrystal_button_up"]
+[connection signal="button_up" from="ExtraCrystal" to="." method="_on_ExtraCrystal_button_up"]
