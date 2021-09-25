@@ -80,3 +80,6 @@ shape = SubResource( 4 )
 position = Vector2( 447.164, 400.737 )
 shape = SubResource( 5 )
 [connection signal="input_event" from="PortaEsquerda" to="." method="_on_PortaEsquerda_input_event"]
+[connection signal="input_event" from="PortaDireita" to="." method="_on_PortaDireita_input_event"]
+[connection signal="input_event" from="PortaSuperior" to="." method="_on_PortaSuperior_input_event"]
+[connection signal="input_event" from="PortaInferior" to="." method="_on_PortaInferior_input_event"]
