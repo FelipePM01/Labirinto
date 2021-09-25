@@ -257,7 +257,6 @@ __meta__ = {
 
 [node name="Audio" parent="Menu Opcoes/Voltar" instance=ExtResource( 17 )]
 stream = ExtResource( 18 )
-
 [connection signal="button_up" from="Menu Principal/Jogador2" to="." method="_on_Jogador2_button_up"]
 [connection signal="button_up" from="Menu Principal/HBoxContainer/Opcoes" to="." method="_on_Opcoes_button_up"]
 [connection signal="button_up" from="Menu Principal/HBoxContainer/Sair" to="." method="_on_Sair_button_up"]

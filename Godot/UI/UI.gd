@@ -1,13 +1,14 @@
 extends Control
 
 signal crystal_pressed
-
+onready var main_crystal=$MarginContainer/VBoxContainer/HBoxContainer/MainCrystal
+onready var extra_crystal=$MarginContainer/VBoxContainer/HBoxContainer/ExtraCrystal
 
 func enable_crystal(crystal_type):
 	if crystal_type == 'main':
-		$MainCrystal.visible = true
+		main_crystal.visible = true
 	else:
-		$ExtraCrystal.visible = true
+		extra_crystal.visible = true
 
 
 func _on_MainCrystal_button_up():
