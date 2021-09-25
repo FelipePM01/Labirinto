@@ -17,6 +17,7 @@ __meta__ = {
 }
 
 [node name="MainCrystal" type="TextureButton" parent="."]
+visible = false
 margin_left = 12.6907
 margin_top = 12.3471
 margin_right = 76.6907
@@ -29,6 +30,7 @@ __meta__ = {
 }
 
 [node name="ExtraCrystal" type="TextureButton" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -76.0
