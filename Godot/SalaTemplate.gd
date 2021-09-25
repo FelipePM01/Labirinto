@@ -1,33 +1,25 @@
 extends Node2D
 
-onready var SalaEsquerda
-onready var SalaDireita
-onready var SalaSuperior
-onready var SalaInferior
-onready var CaminhoAzul
-onready var CaminhoVermelho
 var id
+onready var game=get_parent()
+enum { LEFT, RIGHT, UP, DOWN, NOTHING}
 func _on_PortaEsquerda_input_event(viewport, event, shape_idx):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.pressed):
-		get_tree().changeScene(SalaEsquerda)
+		game.change_room(game.arrowToRoom(LEFT,id))
 
 
 func _on_PortaDireita_input_event(viewport, event, shape_idx):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.pressed):
-		get_tree().changeScene(SalaDireita)
+		game.change_room(game.arrowToRoom(RIGHT,id))
 
 
 func _on_PortaSuperior_input_event(viewport, event, shape_idx):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.pressed):
-		get_tree().changeScene(SalaSuperior)
+		game.change_room(game.arrowToRoom(UP,id))
 
 
 func _on_PortaInferior_input_event(viewport, event, shape_idx):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.pressed):
-		get_tree().changeScene(SalaInferior)
+		game.change_room(game.arrowToRoom(DOWN,id))
 
-func PoderAzul():
-	get_tree().changeScene(CaminhoAzul)
-	
-func PoderVermelho():
-	get_tree().change_scene(CaminhoVermelho)
+

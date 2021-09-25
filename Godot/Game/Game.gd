@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 enum { LEFT, RIGHT, UP, DOWN, NOTHING}
 var arrows = [
@@ -35,17 +35,24 @@ func blue_power(current_room):
 
 
 func red_power(current_room):
-	var left_to_right = ((current_room/5) % 2 == 0)
-	
-	match (arrows[current_room-1]):
+	return arrow_to_room(arrows[current_room-1],current_room)
+
+func left_to_right(room):
+	if ((room-1)/5)%2==0:
+		return 1
+	else:
+		return -1
+func arrow_to_room(arrow,current_room):
+	var left_to_right = left_to_right(current_room)
+	match (arrow):
 		LEFT:
-			return current_room - left_to_right
+			return current_room- left_to_right
 		RIGHT:
-			return current_room + left_to_right
+			return  current_room+left_to_right
 		UP:
-			return current_room - 5
+			return current_room - (10+left_to_right +2*left_to_right*((current_room-1)%5))%10
 		DOWN:
-			return current_room - 5
+			return current_room + (10-left_to_right -2*left_to_right*((current_room-1)%5))%10
 		NOTHING:
 			return current_room
 
