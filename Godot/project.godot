@@ -10,13 +10,22 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
-config/name="Labirinto"
+config/name="The Key is the Moon"
+run/main_scene="res://Menu/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
+
+[display]
+
+window/size/width=986
+window/size/height=556
 
 [rendering]
 
