@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Sprites/Objects/Planets/shadow1.png" type="Texture" id=2]
+[ext_resource path="res://Game/Objects/Planet.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sprites/Objects/Planets/shadow0.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Objects/Planets/shadow2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Objects/Planets/Jupiter.png" type="Texture" id=6]
+
+[node name="BigPlanet" type="Node2D"]
+script = ExtResource( 3 )
+planet = ExtResource( 6 )
+shadows = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ) ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0, 34.081 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

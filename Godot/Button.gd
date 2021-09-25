@@ -12,7 +12,7 @@ func _ready():
 
 func emit_sound():
 	if $Audio:
-		$Audio.play_stored()
+		$Audio.play()
 
 
 func reset_bright():
