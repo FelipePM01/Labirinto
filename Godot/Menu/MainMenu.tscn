@@ -13,16 +13,15 @@
 [ext_resource path="res://Assets/Sprites/Menu/Voltar_pressed.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Menu/MenuOpcoes.gd" type="Script" id=13]
-[ext_resource path="res://Assets/Sprites/UI/Cristal4.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Sprites/Menu/Voltar.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Sprites/Menu/Logo1.png" type="Texture" id=16]
 [ext_resource path="res://Audio/Audio.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Sounds/Stone-1.ogg" type="AudioStream" id=18]
 [ext_resource path="res://Assets/Sounds/Stone-2.ogg" type="AudioStream" id=19]
 [ext_resource path="res://Assets/Music/Fantasia_in_F_minor_by_Franz_Schubert,_D.940_(Op._posth._103).ogg" type="AudioStream" id=20]
+[ext_resource path="res://Assets/Sprites/Menu/CristalOpcoes.png" type="Texture" id=21]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
 font_data = ExtResource( 12 )
 
 [node name="MainMenu" type="Control"]
@@ -43,16 +42,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -286.128
-margin_top = -240.338
-margin_right = -9.1283
-margin_bottom = -153.338
+margin_left = -138.348
+margin_top = -114.214
+margin_right = 138.652
+margin_bottom = -27.2137
 grow_horizontal = 2
 grow_vertical = 2
-rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 16 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -61,21 +58,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -286.0
-margin_top = -52.0
-margin_right = 267.0
-margin_bottom = 197.0
+margin_left = -114.0
+margin_top = -11.0
+margin_right = 114.0
+margin_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Jogador1" type="TextureButton" parent="Menu Principal"]
-margin_left = 164.0
-margin_right = 388.0
-margin_bottom = 80.0
+margin_left = 58.0
+margin_right = 170.0
+margin_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -83,36 +79,30 @@ size_flags_vertical = 3
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Audio" parent="Menu Principal/Jogador1" instance=ExtResource( 17 )]
 stream = ExtResource( 19 )
 
 [node name="Jogador2" type="TextureButton" parent="Menu Principal"]
-margin_left = 164.0
-margin_top = 84.0
-margin_right = 388.0
-margin_bottom = 148.0
+margin_left = 58.0
+margin_top = 42.0
+margin_right = 170.0
+margin_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-size_flags_vertical = 2
+size_flags_vertical = 3
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 6 )
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Audio" parent="Menu Principal/Jogador2" instance=ExtResource( 17 )]
 stream = ExtResource( 19 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu Principal"]
-margin_top = 168.0
-margin_right = 553.0
-margin_bottom = 249.0
+margin_top = 85.0
+margin_right = 228.0
+margin_bottom = 124.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -121,42 +111,33 @@ __meta__ = {
 }
 
 [node name="Opcoes" type="TextureButton" parent="Menu Principal/HBoxContainer"]
-margin_left = 25.0
-margin_top = 8.0
-margin_right = 249.0
-margin_bottom = 72.0
+margin_right = 112.0
+margin_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_vertical = 3
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 2 )
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Audio" parent="Menu Principal/HBoxContainer/Opcoes" instance=ExtResource( 17 )]
-stream = ExtResource( 18 )
+stream = ExtResource( 19 )
 
 [node name="Sair" type="TextureButton" parent="Menu Principal/HBoxContainer"]
-margin_left = 303.0
-margin_top = 8.0
-margin_right = 527.0
-margin_bottom = 72.0
+margin_left = 116.0
+margin_right = 228.0
+margin_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_vertical = 3
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Audio" parent="Menu Principal/HBoxContainer/Sair" instance=ExtResource( 17 )]
-stream = ExtResource( 18 )
+stream = ExtResource( 19 )
 
 [node name="Menu Opcoes" type="VBoxContainer" parent="."]
 visible = false
@@ -164,10 +145,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -100.0
-margin_right = 200.0
-margin_bottom = 200.0
+margin_left = -116.0
+margin_top = -86.2929
+margin_right = 116.0
+margin_bottom = 100.707
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource( 13 )
@@ -179,13 +160,13 @@ __meta__ = {
 stream = ExtResource( 18 )
 
 [node name="Som" type="HSlider" parent="Menu Opcoes"]
-margin_top = 17.0
-margin_right = 400.0
-margin_bottom = 79.0
+margin_top = 14.0
+margin_right = 232.0
+margin_bottom = 45.0
 size_flags_vertical = 6
-custom_icons/grabber_disabled = ExtResource( 14 )
-custom_icons/grabber_highlight = ExtResource( 14 )
-custom_icons/grabber = ExtResource( 14 )
+custom_icons/grabber_disabled = ExtResource( 21 )
+custom_icons/grabber_highlight = ExtResource( 21 )
+custom_icons/grabber = ExtResource( 21 )
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -195,10 +176,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -98.6696
-margin_top = -56.0633
-margin_right = 93.3304
-margin_bottom = -24.0633
+margin_left = -97.5471
+margin_top = -38.6651
+margin_right = 94.4529
+margin_bottom = -6.66514
 grow_horizontal = 2
 custom_fonts/font = SubResource( 1 )
 text = "Som"
@@ -209,13 +190,13 @@ __meta__ = {
 }
 
 [node name="Musica" type="HSlider" parent="Menu Opcoes"]
-margin_top = 118.0
-margin_right = 400.0
-margin_bottom = 180.0
+margin_top = 77.0
+margin_right = 232.0
+margin_bottom = 108.0
 size_flags_vertical = 6
-custom_icons/grabber_disabled = ExtResource( 14 )
-custom_icons/grabber_highlight = ExtResource( 14 )
-custom_icons/grabber = ExtResource( 14 )
+custom_icons/grabber_disabled = ExtResource( 21 )
+custom_icons/grabber_highlight = ExtResource( 21 )
+custom_icons/grabber = ExtResource( 21 )
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -225,10 +206,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -98.6696
-margin_top = -56.0633
-margin_right = 93.3304
-margin_bottom = -24.0633
+margin_left = -98.1084
+margin_top = -28.563
+margin_right = 93.8916
+margin_bottom = 6.43701
 grow_horizontal = 2
 custom_fonts/font = SubResource( 1 )
 text = "Música
@@ -240,10 +221,10 @@ __meta__ = {
 }
 
 [node name="Voltar" type="TextureButton" parent="Menu Opcoes"]
-margin_left = 88.0
-margin_top = 202.0
-margin_right = 312.0
-margin_bottom = 266.0
+margin_left = 60.0
+margin_top = 127.0
+margin_right = 172.0
+margin_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -257,6 +238,8 @@ __meta__ = {
 
 [node name="Audio" parent="Menu Opcoes/Voltar" instance=ExtResource( 17 )]
 stream = ExtResource( 18 )
+
+[connection signal="button_up" from="Menu Principal/Jogador1" to="." method="_on_Jogador1_button_up"]
 [connection signal="button_up" from="Menu Principal/Jogador2" to="." method="_on_Jogador2_button_up"]
 [connection signal="button_up" from="Menu Principal/HBoxContainer/Opcoes" to="." method="_on_Opcoes_button_up"]
 [connection signal="button_up" from="Menu Principal/HBoxContainer/Sair" to="." method="_on_Sair_button_up"]

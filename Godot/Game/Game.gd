@@ -21,6 +21,9 @@ func change_room(next_room):
 	elif next_room == 16:
 		get_node(UI).enable_crystal('extra')
 	
+	get_node(UI).enable_password(next_room == 25)
+	
+	
 	pass # TODO mudar a sala mesmo
 
 
