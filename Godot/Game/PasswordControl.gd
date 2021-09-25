@@ -11,9 +11,10 @@ signal victory
 func _ready():
 	var id = 0
 	for crystal in crystals:
-		crystal.id = id
-		crystal.neutral_textures = neutral_textures
-		crystal.pressed_textures = pressed_textures
+		var node = get_node(crystal)
+		node.id = id
+		node.neutral_textures = neutral_textures
+		node.pressed_textures = pressed_textures
 		id += 1
 
 func color_changed(id, color):

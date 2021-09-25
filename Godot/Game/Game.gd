@@ -14,6 +14,13 @@ export var rooms = []
 export(NodePath) var UI
 
 
+func _ready():
+	if Global.jogador == 1:
+		change_room(2)
+	else:
+		change_room(6)
+
+
 func change_room(next_room):
 	if ((next_room == 1 and Global.jogador == 1) or 
 		(next_room == 15 and Global.jogador == 2)):

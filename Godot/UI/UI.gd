@@ -26,3 +26,14 @@ func _on_MainCrystal_button_up():
 
 func _on_ExtraCrystal_button_up():
 	emit_signal("crystal_pressed", "extra")
+
+
+func _on_Password_victory():
+	$AnimationPlayer.play("SlowFade")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "SlowFade":
+		$AnimationPlayer/Chave.play()
+		$AnimationPlayer/Musica.play_music()
+		$AnimationPlayer.play("RollCredits")
