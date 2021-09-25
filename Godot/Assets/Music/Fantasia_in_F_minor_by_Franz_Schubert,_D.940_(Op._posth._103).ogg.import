@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fantasia_in_F_minor_by_Franz_Schubert,_D.940_(Op._posth._103).ogg-19a6689140c4d4cfad225abda2e19c51.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/Fantasia_in_F_minor_by_Franz_Schubert,_D.940_(Op._posth._103).ogg"
+dest_files=[ "res://.import/Fantasia_in_F_minor_by_Franz_Schubert,_D.940_(Op._posth._103).ogg-19a6689140c4d4cfad225abda2e19c51.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
