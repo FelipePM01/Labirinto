@@ -1,14 +1,23 @@
 extends Control
 
 signal crystal_pressed
-onready var main_crystal=$MarginContainer/VBoxContainer/HBoxContainer/MainCrystal
-onready var extra_crystal=$MarginContainer/VBoxContainer/HBoxContainer/ExtraCrystal
+export(NodePath) var main_crystal
+export(NodePath) var extra_crystal
+
+export(Array, Texture) var neutral_crystals
+export(Array, Texture) var pressed_crystals
 
 func enable_crystal(crystal_type):
 	if crystal_type == 'main':
-		main_crystal.visible = true
+		get_node(main_crystal).texture_normal = neutral_crystals[Global.jogador-1]
+		get_node(main_crystal).texture_pressed = pressed_crystals[Global.jogador-1]
+		get_node(main_crystal).visible = true
 	else:
-		extra_crystal.visible = true
+		get_node(extra_crystal).visible = true
+
+
+func enable_password(value):
+	$Senha.visible = value
 
 
 func _on_MainCrystal_button_up():

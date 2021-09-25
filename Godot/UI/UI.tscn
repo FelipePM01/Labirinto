@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Sprites/UI/Cristal.png" type="Texture" id=1]
 [ext_resource path="res://Button.gd" type="Script" id=2]
@@ -7,6 +7,13 @@
 [ext_resource path="res://Assets/Sprites/UI/Cristal3.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/UI/Cristal3_pressed.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Assets/Sprites/UI/CristalVazio.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/UI/Cristal2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/UI/Cristal2_pressed.png" type="Texture" id=10]
+[ext_resource path="res://Game/PasswordButton.gd" type="Script" id=11]
+[ext_resource path="res://Game/PasswordControl.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Sprites/UI/Cristal4.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/UI/Cristal4_pressed.png" type="Texture" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
@@ -113,6 +120,10 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+main_crystal = NodePath("Poderes/VBoxContainer/HBoxContainer/MainCrystal/MainCrystal")
+extra_crystal = NodePath("Poderes/VBoxContainer/HBoxContainer/ExtraCrystal/ExtraCrystal")
+neutral_crystals = [ ExtResource( 1 ), ExtResource( 9 ) ]
+pressed_crystals = [ ExtResource( 3 ), ExtResource( 10 ) ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fade = SubResource( 1 )
@@ -128,7 +139,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Foreground" type="ColorRect" parent="AnimationPlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.180392, 0.133333, 0.184314, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Poderes" type="MarginContainer" parent="."]
 margin_left = 341.0
 margin_top = 225.0
 margin_right = 473.0
@@ -137,12 +157,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Poderes"]
 margin_right = 132.0
 margin_bottom = 90.0
 custom_constants/separation = 10
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Poderes/VBoxContainer"]
 margin_right = 132.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 4 )
@@ -150,13 +170,23 @@ text = "Poderes"
 align = 1
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Poderes/VBoxContainer"]
 margin_top = 26.0
 margin_right = 132.0
 margin_bottom = 90.0
 
-[node name="MainCrystal" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MainCrystal" type="TextureRect" parent="Poderes/VBoxContainer/HBoxContainer"]
 margin_right = 64.0
+margin_bottom = 64.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainCrystal" type="TextureButton" parent="Poderes/VBoxContainer/HBoxContainer/MainCrystal"]
+visible = false
+margin_left = -0.204468
+margin_right = 63.7955
 margin_bottom = 64.0
 rect_clip_content = true
 size_flags_horizontal = 4
@@ -168,34 +198,140 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExtraCrystal" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ExtraCrystal" type="TextureRect" parent="Poderes/VBoxContainer/HBoxContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExtraCrystal" type="TextureButton" parent="Poderes/VBoxContainer/HBoxContainer/ExtraCrystal"]
+visible = false
+margin_left = -0.204468
+margin_right = 63.7955
+margin_bottom = 64.0
+rect_clip_content = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/MainCrystal" to="." method="_on_MainCrystal_button_up"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/ExtraCrystal" to="." method="_on_ExtraCrystal_button_up"]
+
+[node name="Senha" type="MarginContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -168.0
+margin_top = 2.0
+margin_right = 168.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Senha"]
+margin_right = 336.0
+margin_bottom = 98.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Senha/VBoxContainer"]
+margin_right = 336.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 4 )
+text = "Senha"
+align = 1
+valign = 1
+
+[node name="Password" type="HBoxContainer" parent="Senha/VBoxContainer"]
+margin_top = 26.0
+margin_right = 336.0
+margin_bottom = 90.0
+script = ExtResource( 12 )
+neutral_textures = [ ExtResource( 1 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 13 ) ]
+pressed_textures = [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 14 ) ]
+crystals = [ NodePath("Crystal1"), NodePath("Crystal2"), NodePath("Crystal3"), NodePath("Crystal4"), NodePath("Crystal5") ]
+
+[node name="Crystal1" type="TextureButton" parent="Senha/VBoxContainer/Password"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_clip_content = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Crystal2" type="TextureButton" parent="Senha/VBoxContainer/Password"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_clip_content = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Crystal3" type="TextureButton" parent="Senha/VBoxContainer/Password"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+rect_clip_content = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Crystal4" type="TextureButton" parent="Senha/VBoxContainer/Password"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+rect_clip_content = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Crystal5" type="TextureButton" parent="Senha/VBoxContainer/Password"]
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 64.0
+rect_clip_content = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fade = SubResource( 1 )
 anims/SwipeLeft = SubResource( 2 )
 anims/SwipeRight = SubResource( 3 )
 
-[node name="Foreground" type="ColorRect" parent="AnimationPlayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.180392, 0.133333, 0.184314, 0 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[connection signal="button_up" from="MainCrystal" to="." method="_on_MainCrystal_button_up"]
-[connection signal="button_up" from="ExtraCrystal" to="." method="_on_ExtraCrystal_button_up"]
+[connection signal="button_up" from="Poderes/VBoxContainer/HBoxContainer/MainCrystal/MainCrystal" to="." method="_on_MainCrystal_button_up"]
+[connection signal="button_up" from="Poderes/VBoxContainer/HBoxContainer/ExtraCrystal/ExtraCrystal" to="." method="_on_MainCrystal_button_up"]

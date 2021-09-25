@@ -1,10 +1,13 @@
 extends "res://Button.gd"
 
-export(Array, Texture) var neutral_textures
-export(Array, Texture) var pressed_textures
+var neutral_textures
+var pressed_textures
 var current_color = 0
 var id = 0
 signal color_changed
+
+func _ready():
+	connect('button_up', self, 'next_color')
 
 func next_color():
 	current_color = (current_color + 1) % len(neutral_textures)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CristalVazio.png-9df11d1a42167604d688065d2ac15fae.stex"
+path="res://.import/CristalOpcoes.png-284a82b18b2f9cd8994f2582c4b5acc9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/CristalVazio.png"
-dest_files=[ "res://.import/CristalVazio.png-9df11d1a42167604d688065d2ac15fae.stex" ]
+source_file="res://Assets/Sprites/Menu/CristalOpcoes.png"
+dest_files=[ "res://.import/CristalOpcoes.png-284a82b18b2f9cd8994f2582c4b5acc9.stex" ]
 
 [params]
 

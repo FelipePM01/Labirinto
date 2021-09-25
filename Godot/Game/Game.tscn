@@ -9,4 +9,5 @@ script = ExtResource( 2 )
 [node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="Canvas" instance=ExtResource( 1 )]
+
 [connection signal="crystal_pressed" from="Canvas/UI" to="." method="_on_UI_crystal_pressed"]
