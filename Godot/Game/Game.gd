@@ -6,7 +6,7 @@ RIGHT, RIGHT, DOWN, DOWN, LEFT,
 UP, RIGHT, LEFT, UP, DOWN,
 DOWN, RIGHT, RIGHT, UP, UP,
 UP, UP, UP, UP, DOWN,
-UP, LEFT, UP, UP, NOTHING]
+UP, RIGHT, UP, UP, NOTHING]
 
 var current_room = 1
 var current_room_scene = null

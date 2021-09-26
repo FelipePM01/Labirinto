@@ -7,6 +7,11 @@ export(NodePath) var extra_crystal
 export(Array, Texture) var neutral_crystals
 export(Array, Texture) var pressed_crystals
 
+
+func _ready():
+	$Poderes/VBoxContainer/HBoxContainer/MainCrystal.texture = neutral_crystals[Global.jogador-1]
+
+
 func enable_crystal(crystal_type):
 	if crystal_type == 'main':
 		if !get_node(main_crystal).visible:
