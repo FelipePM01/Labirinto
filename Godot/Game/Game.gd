@@ -2,11 +2,11 @@ extends Node2D
 
 enum { LEFT = 0, RIGHT, UP, DOWN, NOTHING}
 var arrows = [
-DOWN, RIGHT, RIGHT, LEFT, LEFT,
+RIGHT, RIGHT, DOWN, DOWN, LEFT,
 UP, RIGHT, LEFT, UP, DOWN,
 DOWN, RIGHT, RIGHT, UP, UP,
-UP, UP, UP, RIGHT, DOWN,
-UP, UP, LEFT, UP, NOTHING]
+UP, UP, UP, UP, DOWN,
+UP, LEFT, UP, UP, NOTHING]
 
 var current_room = 1
 var current_room_scene = null
