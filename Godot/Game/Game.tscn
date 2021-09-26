@@ -64,6 +64,7 @@ __meta__ = {
 }
 
 [node name="Canvas" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="UI" parent="Canvas" instance=ExtResource( 1 )]
 mouse_filter = 2

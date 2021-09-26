@@ -40,15 +40,15 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 368.999, 222.765 )
+position = Vector2( 340.112, 234.329 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 47 )
 
 [node name="Torch" parent="." instance=ExtResource( 4 )]
-position = Vector2( 112.256, 64.557 )
+position = Vector2( 352.476, 65.1516 )
 
 [node name="Crystal" parent="." instance=ExtResource( 2 )]
-position = Vector2( 147.785, 110.309 )
+position = Vector2( 125.785, 95.4439 )
 jogador_excluido = 2
 main = true
 

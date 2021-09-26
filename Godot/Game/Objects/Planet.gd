@@ -7,7 +7,8 @@ export(Array, Texture) var shadows
 var y_offset = 0
 
 func _ready():
-	$Sprite.texture = planet
+	if planet != null:
+		$Sprite.texture = planet
 
 func _on_Timer_timeout():
 	if state == len(shadows)-1:

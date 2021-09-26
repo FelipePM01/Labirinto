@@ -6,7 +6,7 @@ signal activated
 
 func _ready():
 	$Sprite.texture = planet
-	if jogador_excluido == Global.jogador:
+	if jogador_excluido == Global.jogador or (main and Global.main_crystal) or (!main and Global.extra_crystal):
 		visible = false
 
 

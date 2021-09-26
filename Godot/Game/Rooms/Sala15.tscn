@@ -48,6 +48,7 @@ texture = ExtResource( 2 )
 position = Vector2( 364.411, 64.0723 )
 
 [node name="Crystal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 352.851, 185.041 )
 planet = ExtResource( 4 )
 jogador_excluido = 1
 main = true

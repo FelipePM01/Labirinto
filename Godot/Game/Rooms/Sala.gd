@@ -2,8 +2,8 @@ extends Node2D
 
 signal object_interacted
 
-func setup(rug_texture, id):
-	$SalaTemplate.id = id
+func setup(rug_texture, id, entrance_direction):
+	$SalaTemplate.setup(id, entrance_direction)
 	$Rug.texture = rug_texture
 	if Global.jogador == 2:
 		$Rug/Number.text = str(id)

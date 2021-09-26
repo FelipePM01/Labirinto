@@ -43,4 +43,4 @@ position = Vector2( 378.761, 64.5305 )
 texture = ExtResource( 2 )
 
 [node name="Torch" parent="." instance=ExtResource( 3 )]
-position = Vector2( 336.38, 190.882 )
+position = Vector2( 337.047, 218.914 )

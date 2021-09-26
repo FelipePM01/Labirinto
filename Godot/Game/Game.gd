@@ -18,12 +18,12 @@ export(NodePath) var UI
 
 func _ready():
 	if Global.jogador == 1:
-		change_room(2)
+		change_room(2, NOTHING)
 	else:
-		change_room(6)
+		change_room(6, NOTHING)
 
 
-func change_room(next_room):
+func change_room(next_room, direction):
 	print_debug(next_room)
 	
 	# room events
@@ -40,9 +40,9 @@ func change_room(next_room):
 	current_room_scene = new_instance
 	new_instance.connect("object_interacted", self, "object_interacted")
 	if Global.jogador == 1:
-		new_instance.setup(rugs[arrows[next_room-1]], next_room)
+		new_instance.setup(rugs[arrows[next_room-1]], next_room, direction)
 	else:
-		new_instance.setup(rugs[4], next_room)
+		new_instance.setup(rugs[4], next_room, direction)
 	
 	current_room = next_room
 
@@ -106,4 +106,4 @@ func _on_UI_crystal_pressed(crystal_type):
 	else:
 		next_room = green_power(current_room)
 	
-	change_room(next_room)
+	change_room(next_room, NOTHING)

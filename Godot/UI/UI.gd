@@ -12,6 +12,14 @@ func _ready():
 	$Poderes/VBoxContainer/HBoxContainer/MainCrystal.texture = neutral_crystals[Global.jogador-1]
 
 
+func _process(delta):
+	if Input.is_action_pressed("ui_cancel"):
+		$Pause.pause()
+
+func _on_PauseButton_button_up():
+	$Pause.pause()
+
+
 func enable_crystal(crystal_type):
 	if crystal_type == "main":
 		get_node(main_crystal).texture_normal = neutral_crystals[Global.jogador-1]

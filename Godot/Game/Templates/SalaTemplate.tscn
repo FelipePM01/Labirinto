@@ -674,26 +674,28 @@ tile_data = PoolIntArray( -393244, 0, 0, 65537, 40, 0, 65538, 32, 0, 65539, 32, 
 [node name="PortaEsquerda" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortaEsquerda"]
-position = Vector2( 48.8774, 160.757 )
+position = Vector2( 50, 160 )
 shape = SubResource( 2 )
 
 [node name="PortaDireita" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortaDireita"]
-position = Vector2( 431.675, 159.309 )
+position = Vector2( 430, 160 )
 shape = SubResource( 3 )
 
 [node name="PortaSuperior" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortaSuperior"]
-position = Vector2( 239.795, 51.6514 )
+position = Vector2( 240, 50 )
 shape = SubResource( 4 )
 
 [node name="PortaInferior" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortaInferior"]
-position = Vector2( 237.698, 269.877 )
+position = Vector2( 240, 270 )
 shape = SubResource( 5 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="input_event" from="PortaEsquerda" to="." method="_on_PortaEsquerda_input_event"]
 [connection signal="input_event" from="PortaDireita" to="." method="_on_PortaDireita_input_event"]
