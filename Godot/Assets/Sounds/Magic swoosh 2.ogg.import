@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Magic swoosh 2.ogg-3908c47d69f374cbd7b8d1287961f04c.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Magic swoosh 2.ogg"
+dest_files=[ "res://.import/Magic swoosh 2.ogg-3908c47d69f374cbd7b8d1287961f04c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

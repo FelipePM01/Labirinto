@@ -5,11 +5,11 @@ func _ready():
 	$Music.play_music()
 
 func _on_Jogador1_button_up():
-	Global.jogador = 1
+	Global.start_game(1)
 	get_tree().change_scene("res://Game/Game.tscn")
 
 func _on_Jogador2_button_up():
-	Global.jogador = 2
+	Global.start_game(2)
 	get_tree().change_scene("res://Game/Game.tscn")
 
 

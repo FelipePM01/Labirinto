@@ -13,7 +13,7 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel"):
 		$Pause.pause()
 
 func _on_PauseButton_button_up():
@@ -49,8 +49,6 @@ func _on_Password_victory():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "SlowFade":
-		$AnimationPlayer/Chave.play()
-		$AnimationPlayer/Musica.play_music()
 		$AnimationPlayer.play("RollCredits")
 	elif anim_name == "RollCredits":
 		get_tree().change_scene("res://Menu/MainMenu.tscn")

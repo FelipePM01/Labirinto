@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Sprites/Player/RedPlayer3.png" type="Texture" id=1]
 [ext_resource path="res://Game/Player.gd" type="Script" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://Assets/Sprites/Player/BluePlayerFront.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Sprites/Player/RedPlayerFront.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Sprites/Player/RedPlayerBack.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sounds/Magic swoosh.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Sounds/Magic swoosh 2.ogg" type="AudioStream" id=17]
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 2 )
@@ -24,6 +26,7 @@ front = [ ExtResource( 13 ), ExtResource( 14 ) ]
 back = [ ExtResource( 12 ), ExtResource( 15 ) ]
 particle = [ ExtResource( 7 ), ExtResource( 5 ) ]
 extra_particle = ExtResource( 11 )
+teleport_sounds = [ ExtResource( 16 ), ExtResource( 17 ) ]
 
 [node name="Hovering" type="Node2D" parent="."]
 script = ExtResource( 3 )

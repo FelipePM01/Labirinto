@@ -7,6 +7,8 @@ export(Array, Texture) var front
 export(Array, Texture) var back
 export(Array, Texture) var particle
 export(Texture) var extra_particle
+export(Array, AudioStream) var teleport_sounds
+
 var frame_count = 4
 var crystal_type = 'main'
 var fading = false
@@ -58,6 +60,9 @@ func teleport(crystal_type):
 		$Particles.texture = particle[Global.jogador - 1]
 	else:
 		$Particles.texture = extra_particle
+	
+	AudioManager.stream = teleport_sounds[randi() % len(teleport_sounds)]
+	AudioManager.play()
 	
 	$Particles.emitting = true
 	$Hovering/Timer.stop()
