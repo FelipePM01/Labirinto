@@ -18,8 +18,10 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 		$Tween.interpolate_property($Sprite, "scale", Vector2(1, 1), Vector2(0, 0), 0.4)
 		$Tween.start()
 		if main:
+			Global.main_crystal = true
 			emit_signal("activated", "main_crystal")
 		else:
+			Global.extra_crystal = true
 			emit_signal("activated", "extra_crystal")
 
 

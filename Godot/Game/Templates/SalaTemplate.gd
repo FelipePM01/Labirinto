@@ -39,10 +39,6 @@ func setup(id, entrance_direction):
 func move_to_door(direction):
 	queued_direction = direction
 	
-	# Audio
-	AudioManager.stream = door_sound
-	AudioManager.play()
-	
 	# Player move
 	player.set_moving(direction)
 	$Tween.stop_all()
@@ -74,4 +70,8 @@ func tween_completed(object, key):
 	player.set_idle()
 	if queued_direction == null:
 		return
+	
+	# Audio
+	AudioManager.stream = door_sound
+	AudioManager.play()
 	game.change_room(game.arrow_to_room(queued_direction, id), opposite_direction[queued_direction])
