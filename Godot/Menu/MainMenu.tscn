@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Assets/Sprites/Menu/Jogador2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Menu/Opcoes_pressed.png" type="Texture" id=2]
@@ -13,13 +13,15 @@
 [ext_resource path="res://Assets/Sprites/Menu/Voltar_pressed.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Menu/MenuOpcoes.gd" type="Script" id=13]
+[ext_resource path="res://Game/Objects/Torch.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Sprites/Menu/Voltar.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Sprites/Menu/Logo1.png" type="Texture" id=16]
 [ext_resource path="res://Audio/Audio.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Sounds/Stone-1.ogg" type="AudioStream" id=18]
 [ext_resource path="res://Assets/Sounds/Stone-2.ogg" type="AudioStream" id=19]
-[ext_resource path="res://Assets/Music/Fantasia_in_F_minor_by_Franz_Schubert,_D.940_(Op._posth._103).ogg" type="AudioStream" id=20]
+[ext_resource path="res://Assets/Music/Moonlight Sonata Adagio Sostenuto.ogg" type="AudioStream" id=20]
 [ext_resource path="res://Assets/Sprites/Menu/CristalOpcoes.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/Menu/background.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 12 )
@@ -38,8 +40,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.180392, 0.133333, 0.184314, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -1.18921
+margin_top = 102.238
+margin_right = 478.811
+margin_bottom = 422.238
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Torch" parent="." instance=ExtResource( 14 )]
+position = Vector2( 238.98, 42.7018 )
 
 [node name="Music" parent="." instance=ExtResource( 17 )]
 stream = ExtResource( 20 )

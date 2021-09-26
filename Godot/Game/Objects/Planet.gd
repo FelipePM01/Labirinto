@@ -4,13 +4,11 @@ var state = 0
 var rising = true
 export(Texture) var planet
 export(Array, Texture) var shadows
-export var jogador_excluido = 0
 var y_offset = 0
 
 func _ready():
-	$Sprite.texture = planet
-	if jogador_excluido == Global.jogador:
-		visible = false
+	if planet != null:
+		$Sprite.texture = planet
 
 func _on_Timer_timeout():
 	if state == len(shadows)-1:

@@ -23,4 +23,6 @@ tile_data = PoolIntArray( -393244, 0, 0, 65537, 40, 0, 65538, 32, 0, 65539, 32, 
 position = Vector2( 239.795, 51.6514 )
 shape = SubResource( 2 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="input_event" from="PortaSuperior" to="." method="_on_PortaSuperior_input_event"]

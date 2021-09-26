@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/Sprites/UI/Cristal.png" type="Texture" id=1]
 [ext_resource path="res://Button.gd" type="Script" id=2]
@@ -18,6 +18,16 @@
 [ext_resource path="res://Audio/Audio.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Music/Fantasia_in_F_minor_by_Franz_Schubert,_D.940_(Op._posth._103).ogg" type="AudioStream" id=17]
 [ext_resource path="res://Assets/Sounds/Crystal.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Assets/Sprites/UI/Brilho.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/Menu/Sair_pressed.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/Menu/Voltar.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/Menu/Voltar_pressed.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/Menu/Sair.png" type="Texture" id=23]
+[ext_resource path="res://UI/Pause.gd" type="Script" id=24]
+[ext_resource path="res://Assets/Sprites/Menu/Menu.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/Menu/Menu_pressed.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/Menu/Pause_pressed.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/Menu/Pause.png" type="Texture" id=28]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
@@ -201,6 +211,7 @@ font_data = ExtResource( 7 )
 font_data = ExtResource( 7 )
 
 [node name="UI" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
@@ -236,24 +247,28 @@ __meta__ = {
 
 [node name="Creditos" type="Label" parent="AnimationPlayer"]
 margin_left = 5.0
-margin_top = 335.258
+margin_top = 335.0
 margin_right = 481.0
-margin_bottom = 654.258
+margin_bottom = 969.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 6 )
 text = "CRÉDITOS
 
-Danilo Isamu:
+Danilo Isamu
+ (MisterProject):
 Level Design, Programação, Arte
 
-Felipe:
+Felipe Pacheco Manoel (MrColorHD):
 Programação, Arte
 
-Tiago:
+Nostress767:
 Arte
 
-Mozart:
-Amém"
+Ludwig Van Beethoven:
+Moonlight Sonata
+
+Franz Schubert:
+Fantasia em F menor"
 align = 1
 autowrap = true
 __meta__ = {
@@ -267,17 +282,6 @@ __meta__ = {
 stream = ExtResource( 17 )
 is_music = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 336.0
-margin_top = 220.0
-margin_right = 481.0
-margin_bottom = 322.0
-mouse_filter = 1
-color = Color( 0.192157, 0.211765, 0.219608, 0.52549 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Poderes" type="MarginContainer" parent="."]
 margin_left = 341.0
 margin_top = 225.0
@@ -285,6 +289,7 @@ margin_right = 473.0
 margin_bottom = 315.0
 mouse_filter = 1
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -298,7 +303,6 @@ margin_right = 132.0
 margin_bottom = 16.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 7 )
-text = "Poderes"
 align = 1
 valign = 1
 
@@ -312,6 +316,17 @@ self_modulate = Color( 1, 1, 1, 0.313726 )
 margin_right = 64.0
 margin_bottom = 64.0
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Brilho" type="TextureRect" parent="Poderes/VBoxContainer/HBoxContainer/MainCrystal"]
+margin_left = -0.28064
+margin_top = 1.09174
+margin_right = 127.719
+margin_bottom = 129.092
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -348,6 +363,17 @@ margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Brilho2" type="TextureRect" parent="Poderes/VBoxContainer/HBoxContainer/ExtraCrystal"]
+margin_left = -0.874878
+margin_top = 1.09174
+margin_right = 127.125
+margin_bottom = 129.092
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -500,6 +526,103 @@ __meta__ = {
 [node name="Audio" parent="Senha/VBoxContainer/Password/Crystal5" instance=ExtResource( 16 )]
 stream = ExtResource( 15 )
 
+[node name="Pause" type="Control" parent="."]
+visible = false
+margin_right = 480.0
+margin_bottom = 320.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="Pause"]
+margin_right = 480.0
+margin_bottom = 320.0
+color = Color( 0.243137, 0.207843, 0.27451, 0.588235 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -70.0
+margin_right = 56.0
+margin_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/MarginContainer"]
+margin_right = 112.0
+margin_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Voltar" type="TextureButton" parent="Pause/MarginContainer/VBoxContainer"]
+margin_right = 112.0
+margin_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 22 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+button_sound = ExtResource( 15 )
+
+[node name="Menu" type="TextureButton" parent="Pause/MarginContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 112.0
+margin_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 26 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+button_sound = ExtResource( 15 )
+
+[node name="Sair" type="TextureButton" parent="Pause/MarginContainer/VBoxContainer"]
+margin_top = 105.0
+margin_right = 112.0
+margin_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 20 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Audio" parent="Pause/MarginContainer/VBoxContainer/Sair" instance=ExtResource( 16 )]
+stream = ExtResource( 15 )
+
+[node name="PauseButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.3377
+margin_top = -0.00169373
+margin_right = -0.337708
+margin_bottom = 31.9983
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="button_up" from="Poderes/VBoxContainer/HBoxContainer/MainCrystal/MainCrystal" to="." method="_on_MainCrystal_button_up"]
 [connection signal="button_up" from="Poderes/VBoxContainer/HBoxContainer/ExtraCrystal/ExtraCrystal" to="." method="_on_ExtraCrystal_button_up"]
@@ -509,3 +632,7 @@ stream = ExtResource( 15 )
 [connection signal="color_changed" from="Senha/VBoxContainer/Password/Crystal3" to="Senha/VBoxContainer/Password" method="color_changed"]
 [connection signal="color_changed" from="Senha/VBoxContainer/Password/Crystal4" to="Senha/VBoxContainer/Password" method="color_changed"]
 [connection signal="color_changed" from="Senha/VBoxContainer/Password/Crystal5" to="Senha/VBoxContainer/Password" method="color_changed"]
+[connection signal="button_up" from="Pause/MarginContainer/VBoxContainer/Voltar" to="Pause" method="_on_Voltar_button_up"]
+[connection signal="button_up" from="Pause/MarginContainer/VBoxContainer/Menu" to="Pause" method="_on_Menu_button_up"]
+[connection signal="button_up" from="Pause/MarginContainer/VBoxContainer/Sair" to="Pause" method="_on_Sair_button_up"]
+[connection signal="button_up" from="PauseButton" to="." method="_on_PauseButton_button_up"]

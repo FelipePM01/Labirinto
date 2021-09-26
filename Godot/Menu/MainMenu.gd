@@ -2,7 +2,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Music.play()
+	$Music.play_music()
 
 func _on_Jogador1_button_up():
 	Global.jogador = 1

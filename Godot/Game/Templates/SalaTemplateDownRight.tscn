@@ -32,5 +32,7 @@ shape = SubResource( 2 )
 position = Vector2( 237.698, 269.877 )
 shape = SubResource( 3 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="input_event" from="PortaDireita" to="." method="_on_PortaDireita_input_event"]
 [connection signal="input_event" from="PortaInferior" to="." method="_on_PortaInferior_input_event"]

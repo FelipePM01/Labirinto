@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Game.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Music/Fantasia_in_F_minor_by_Franz_Schubert,_D.940_(Op._posth._103).ogg" type="AudioStream" id=3]
 [ext_resource path="res://Game/Rooms/Sala1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sprites/Rugs/RugDown.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/Rugs/RugLeft.png" type="Texture" id=6]
@@ -32,6 +33,7 @@
 [ext_resource path="res://Game/Rooms/Sala20.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Game/Rooms/Sala25.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Game/Rooms/Sala9.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Audio/Audio.tscn" type="PackedScene" id=34]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -64,8 +66,13 @@ __meta__ = {
 }
 
 [node name="Canvas" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="UI" parent="Canvas" instance=ExtResource( 1 )]
 mouse_filter = 2
+
+[node name="Audio" parent="." instance=ExtResource( 34 )]
+stream = ExtResource( 3 )
+is_music = true
 
 [connection signal="crystal_pressed" from="Canvas/UI" to="." method="_on_UI_crystal_pressed"]
