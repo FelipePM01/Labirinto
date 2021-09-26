@@ -12,7 +12,7 @@ func _ready():
 
 
 func emit_sound():
-	if get_node("Audio") != null:
+	if find_node("Audio") != null:
 		$Audio.play()
 	else:
 		AudioManager.stream = button_sound

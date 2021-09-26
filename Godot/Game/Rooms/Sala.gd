@@ -1,5 +1,6 @@
 extends Node2D
 
+signal object_interacted
 
 func setup(rug_texture, id):
 	$SalaTemplate.id = id
@@ -8,3 +9,7 @@ func setup(rug_texture, id):
 		$Rug/Number.text = str(id)
 	else:
 		$Rug/Number.text = ""
+
+
+func _on_Crystal_activated(object):
+	emit_signal("object_interacted", object)

@@ -13,17 +13,12 @@ func _ready():
 
 
 func enable_crystal(crystal_type):
-	if crystal_type == 'main':
-		if !get_node(main_crystal).visible:
-			$CrystalEnabled.play()
-		
+	if crystal_type == "main":
 		get_node(main_crystal).texture_normal = neutral_crystals[Global.jogador-1]
 		get_node(main_crystal).texture_pressed = pressed_crystals[Global.jogador-1]
 		get_node(main_crystal).visible = true
 	else:
-		if !get_node(extra_crystal).visible:
-			$CrystalEnabled.play()
-		
+
 		get_node(extra_crystal).visible = true
 
 

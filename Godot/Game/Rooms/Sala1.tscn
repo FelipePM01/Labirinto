@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Templates/SalaTemplateRight.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Game/Objects/Planet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Sprites/UI/Cristal.png" type="Texture" id=3]
+[ext_resource path="res://Game/Objects/Crystal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Objects/Torch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Rooms/Sala.gd" type="Script" id=44]
 [ext_resource path="res://Assets/Sprites/Rugs/RugDown.png" type="Texture" id=45]
@@ -45,10 +44,12 @@ position = Vector2( 368.999, 222.765 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 47 )
 
-[node name="Planet" parent="." instance=ExtResource( 2 )]
-position = Vector2( 81.0718, 117.599 )
-planet = ExtResource( 3 )
-jogador_excluido = 2
-
 [node name="Torch" parent="." instance=ExtResource( 4 )]
 position = Vector2( 112.256, 64.557 )
+
+[node name="Crystal" parent="." instance=ExtResource( 2 )]
+position = Vector2( 147.785, 110.309 )
+jogador_excluido = 2
+main = true
+
+[connection signal="activated" from="Crystal" to="." method="_on_Crystal_activated"]

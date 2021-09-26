@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game/Objects/Crystal.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Objects/Planets/shadow1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Objects/Planets/shadow0.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Objects/Planets/shadow2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/UI/Cristal.png" type="Texture" id=6]
+[ext_resource path="res://Audio/Audio.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Sounds/Crystal.ogg" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.5, 33.25 )
+
+[node name="Crystal" type="Node2D"]
+script = ExtResource( 1 )
+planet = ExtResource( 6 )
+shadows = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ) ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0.186661, 32.3762 )
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Audio" parent="." instance=ExtResource( 7 )]
+stream = ExtResource( 8 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
