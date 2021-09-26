@@ -247,24 +247,28 @@ __meta__ = {
 
 [node name="Creditos" type="Label" parent="AnimationPlayer"]
 margin_left = 5.0
-margin_top = 335.258
+margin_top = 335.0
 margin_right = 481.0
-margin_bottom = 654.258
+margin_bottom = 969.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 6 )
 text = "CRÉDITOS
 
-Danilo Isamu:
+Danilo Isamu
+ (MisterProject):
 Level Design, Programação, Arte
 
-Felipe:
+Felipe Pacheco Manoel (MrColorHD):
 Programação, Arte
 
-Tiago:
+Nostress767:
 Arte
 
-Mozart:
-Amém"
+Ludwig Van Beethoven:
+Moonlight Sonata
+
+Franz Schubert:
+Fantasia em F menor"
 align = 1
 autowrap = true
 __meta__ = {

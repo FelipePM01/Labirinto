@@ -10,6 +10,7 @@ UP, RIGHT, UP, UP, NOTHING]
 
 var current_room = 1
 var current_room_scene = null
+var current_player_instance = null
 
 export(Array, Texture) var rugs
 export(Array, PackedScene) var rooms
@@ -17,6 +18,7 @@ export(NodePath) var UI
 
 
 func _ready():
+	$Audio.play_music()
 	if Global.jogador == 1:
 		change_room(2, NOTHING)
 	else:
@@ -97,6 +99,10 @@ func green_power(this_room):
 
 
 func _on_UI_crystal_pressed(crystal_type):
+	current_player_instance.teleport(crystal_type)
+
+
+func teleport(crystal_type):
 	var next_room = null
 	if crystal_type == 'main':
 		if Global.jogador == 1:
@@ -107,3 +113,8 @@ func _on_UI_crystal_pressed(crystal_type):
 		next_room = green_power(current_room)
 	
 	change_room(next_room, NOTHING)
+
+
+func setup_player(player):
+	current_player_instance = player
+	player.connect('teleport', self, 'teleport')

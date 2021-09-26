@@ -24,11 +24,16 @@ func setup(id, entrance_direction):
 	player = player_prefab.instance()
 	add_child(player)
 	move_child(player, get_child_count()-1)
+	game.setup_player(player)
 	
+	player.set_moving(opposite_direction[entrance_direction])
 	$Tween.stop_all()
 	$Tween.interpolate_property(player, "position", positions[entrance_direction], 
 								positions[NOTHING], TIME_TO_MOVE)
 	$Tween.start()
+	
+	if entrance_direction == NOTHING:
+		player.reappear()
 
 
 func move_to_door(direction):
@@ -39,6 +44,7 @@ func move_to_door(direction):
 	AudioManager.play()
 	
 	# Player move
+	player.set_moving(direction)
 	$Tween.stop_all()
 	$Tween.interpolate_property(player, "position", player.position, positions[direction], TIME_TO_MOVE)
 	$Tween.start()
@@ -65,6 +71,7 @@ func _on_PortaInferior_input_event(_viewport, event, _shape_idx):
 
 
 func tween_completed(object, key):
+	player.set_idle()
 	if queued_direction == null:
 		return
 	game.change_room(game.arrow_to_room(queued_direction, id), opposite_direction[queued_direction])
