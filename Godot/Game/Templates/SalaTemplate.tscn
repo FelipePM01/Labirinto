@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Assets/Sprites/Tiles/tile_38.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Tiles/tile_29.png" type="Texture" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://Assets/Sprites/Tiles/tile_37.png" type="Texture" id=41]
 [ext_resource path="res://Assets/Sprites/Tiles/tile_31.png" type="Texture" id=42]
 [ext_resource path="res://Assets/Sprites/Tiles/tile_32.png" type="Texture" id=43]
+[ext_resource path="res://Assets/Sounds/close_door_1.mp3" type="AudioStream" id=45]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tile_01.png 0"
@@ -662,6 +663,7 @@ extents = Vector2( 47.5226, 18.0487 )
 
 [node name="SalaTemplate" type="Node2D"]
 script = ExtResource( 4 )
+door_sound = ExtResource( 45 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )

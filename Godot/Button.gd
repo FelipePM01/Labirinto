@@ -1,5 +1,6 @@
 extends TextureButton
 
+export(AudioStream) var button_sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +14,9 @@ func _ready():
 func emit_sound():
 	if get_node("Audio") != null:
 		$Audio.play()
+	else:
+		AudioManager.stream = button_sound
+		AudioManager.play()
 
 
 func reset_bright():

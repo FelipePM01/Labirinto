@@ -308,8 +308,17 @@ margin_right = 132.0
 margin_bottom = 90.0
 
 [node name="MainCrystal" type="TextureRect" parent="Poderes/VBoxContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.313726 )
 margin_right = 64.0
 margin_bottom = 64.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Empty" type="TextureRect" parent="Poderes/VBoxContainer/HBoxContainer/MainCrystal"]
+margin_right = 40.0
+margin_bottom = 40.0
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -334,9 +343,18 @@ __meta__ = {
 stream = ExtResource( 15 )
 
 [node name="ExtraCrystal" type="TextureRect" parent="Poderes/VBoxContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.313726 )
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Empty" type="TextureRect" parent="Poderes/VBoxContainer/HBoxContainer/ExtraCrystal"]
+margin_right = 40.0
+margin_bottom = 40.0
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false

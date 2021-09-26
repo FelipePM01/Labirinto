@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game/Templates/SalaTemplateLeft.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Objects/Day/Sunset.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/UI/Cristal3_pressed.png" type="Texture" id=3]
+[ext_resource path="res://Game/Objects/Planet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Objects/Torch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/Rooms/Sala.gd" type="Script" id=44]
 [ext_resource path="res://Assets/Sprites/Rugs/RugDown.png" type="Texture" id=45]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=46]
@@ -40,3 +43,10 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 142.579, 64.4495 )
 texture = ExtResource( 2 )
+
+[node name="Planet" parent="." instance=ExtResource( 4 )]
+position = Vector2( 367.941, 181.743 )
+planet = ExtResource( 3 )
+
+[node name="Torch" parent="." instance=ExtResource( 5 )]
+position = Vector2( 367.08, 63.4048 )
