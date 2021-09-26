@@ -12,6 +12,7 @@ func _on_Jogador2_button_up():
 	Global.jogador = 2
 	get_tree().change_scene("res://Game/Game.tscn")
 
+
 func _on_Opcoes_button_up():
 	$"Menu Opcoes".visible = true
 	$"Menu Principal".visible = false

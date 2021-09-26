@@ -11,7 +11,7 @@ func _ready():
 
 
 func emit_sound():
-	if $Audio:
+	if get_node("Audio") != null:
 		$Audio.play()
 
 
