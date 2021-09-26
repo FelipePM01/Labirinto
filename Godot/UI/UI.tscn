@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Sprites/UI/Cristal.png" type="Texture" id=1]
 [ext_resource path="res://Button.gd" type="Script" id=2]
@@ -14,10 +14,14 @@
 [ext_resource path="res://Game/PasswordControl.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Sprites/UI/Cristal4.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Sprites/UI/Cristal4_pressed.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sounds/Stone-2.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Audio/Audio.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Music/Fantasia_in_F_minor_by_Franz_Schubert,_D.940_(Op._posth._103).ogg" type="AudioStream" id=17]
+[ext_resource path="res://Assets/Sounds/Crystal.ogg" type="AudioStream" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Foreground:color")
 tracks/0/interp = 1
@@ -25,7 +29,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0.180392, 0.133333, 0.184314, 0 ), Color( 0.180392, 0.133333, 0.184314, 1 ) ]
@@ -40,7 +44,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 986, 556 ) ]
+"values": [ Vector2( 480, 320 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimationPlayer/Foreground:rect_position")
@@ -56,65 +60,150 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-length = 0.3
+resource_name = "RollCredits"
+length = 10.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Foreground:rect_size")
+tracks/0/path = NodePath("AnimationPlayer/Creditos:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 9.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 556 ), Vector2( 986, 556 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayer/Foreground:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 986, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 5, 335.258 ), Vector2( 5, -350 ) ]
 }
 
 [sub_resource type="Animation" id=3]
-length = 0.3
+resource_name = "SlowFade"
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Foreground:rect_size")
+tracks/0/path = NodePath("AnimationPlayer/Foreground:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 556 ), Vector2( 986, 556 ) ]
+"values": [ Color( 0.180392, 0.133333, 0.184314, 0 ), Color( 0.180392, 0.133333, 0.184314, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayer/Foreground:rect_position")
+tracks/1/path = NodePath("AnimationPlayer/Foreground:rect_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 480, 320 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/Foreground:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "SwipeLeft"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Foreground:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 480, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/Foreground:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 320 ), Vector2( 480, 320 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/Foreground:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.180392, 0.133333, 0.184314, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "SwipeRight"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Foreground:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/Foreground:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 320 ), Vector2( 480, 320 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/Foreground:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.180392, 0.133333, 0.184314, 1 ) ]
+}
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 7 )
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true,
@@ -125,26 +214,67 @@ extra_crystal = NodePath("Poderes/VBoxContainer/HBoxContainer/ExtraCrystal/Extra
 neutral_crystals = [ ExtResource( 1 ), ExtResource( 9 ) ]
 pressed_crystals = [ ExtResource( 3 ), ExtResource( 10 ) ]
 
+[node name="CrystalEnabled" parent="." instance=ExtResource( 16 )]
+stream = ExtResource( 18 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fade = SubResource( 1 )
-anims/SwipeLeft = SubResource( 2 )
-anims/SwipeRight = SubResource( 3 )
+anims/RollCredits = SubResource( 2 )
+anims/SlowFade = SubResource( 3 )
+anims/SwipeLeft = SubResource( 4 )
+anims/SwipeRight = SubResource( 5 )
 
 [node name="Foreground" type="ColorRect" parent="AnimationPlayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0.180392, 0.133333, 0.184314, 0 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Foreground" type="ColorRect" parent="AnimationPlayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.180392, 0.133333, 0.184314, 0 )
+[node name="Creditos" type="Label" parent="AnimationPlayer"]
+margin_left = 5.0
+margin_top = 335.258
+margin_right = 481.0
+margin_bottom = 654.258
+mouse_filter = 1
+custom_fonts/font = SubResource( 6 )
+text = "CRÉDITOS
+
+Danilo Isamu:
+Level Design, Programação, Arte
+
+Felipe:
+Programação, Arte
+
+Tiago:
+Arte
+
+Mozart:
+Amém"
+align = 1
+autowrap = true
 __meta__ = {
 "_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Chave" parent="AnimationPlayer" instance=ExtResource( 16 )]
+
+[node name="Musica" parent="AnimationPlayer" instance=ExtResource( 16 )]
+stream = ExtResource( 17 )
+is_music = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 336.0
+margin_top = 220.0
+margin_right = 481.0
+margin_bottom = 322.0
+mouse_filter = 1
+color = Color( 0.192157, 0.211765, 0.219608, 0.52549 )
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
@@ -153,6 +283,7 @@ margin_left = 341.0
 margin_top = 225.0
 margin_right = 473.0
 margin_bottom = 315.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -165,7 +296,8 @@ custom_constants/separation = 10
 [node name="Label" type="Label" parent="Poderes/VBoxContainer"]
 margin_right = 132.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 4 )
+mouse_filter = 1
+custom_fonts/font = SubResource( 7 )
 text = "Poderes"
 align = 1
 valign = 1
@@ -198,6 +330,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Audio" parent="Poderes/VBoxContainer/HBoxContainer/MainCrystal/MainCrystal" instance=ExtResource( 16 )]
+stream = ExtResource( 15 )
+
 [node name="ExtraCrystal" type="TextureRect" parent="Poderes/VBoxContainer/HBoxContainer"]
 margin_left = 68.0
 margin_right = 132.0
@@ -222,21 +357,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Audio" parent="Poderes/VBoxContainer/HBoxContainer/ExtraCrystal/ExtraCrystal" instance=ExtResource( 16 )]
+stream = ExtResource( 15 )
+
 [node name="Senha" type="MarginContainer" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -168.0
-margin_top = 2.0
-margin_right = 168.0
-margin_bottom = 100.0
+margin_left = -170.523
+margin_top = 109.635
+margin_right = 165.477
+margin_bottom = 207.635
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Senha"]
 margin_right = 336.0
-margin_bottom = 98.0
+margin_bottom = 97.0
 custom_constants/separation = 10
 __meta__ = {
 "_edit_lock_": true
@@ -245,7 +383,8 @@ __meta__ = {
 [node name="Label" type="Label" parent="Senha/VBoxContainer"]
 margin_right = 336.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 4 )
+mouse_filter = 1
+custom_fonts/font = SubResource( 7 )
 text = "Senha"
 align = 1
 valign = 1
@@ -272,6 +411,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Audio" parent="Senha/VBoxContainer/Password/Crystal1" instance=ExtResource( 16 )]
+stream = ExtResource( 15 )
+
 [node name="Crystal2" type="TextureButton" parent="Senha/VBoxContainer/Password"]
 margin_left = 68.0
 margin_right = 132.0
@@ -285,6 +427,9 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Audio" parent="Senha/VBoxContainer/Password/Crystal2" instance=ExtResource( 16 )]
+stream = ExtResource( 15 )
 
 [node name="Crystal3" type="TextureButton" parent="Senha/VBoxContainer/Password"]
 margin_left = 136.0
@@ -300,6 +445,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Audio" parent="Senha/VBoxContainer/Password/Crystal3" instance=ExtResource( 16 )]
+stream = ExtResource( 15 )
+
 [node name="Crystal4" type="TextureButton" parent="Senha/VBoxContainer/Password"]
 margin_left = 204.0
 margin_right = 268.0
@@ -313,6 +461,9 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Audio" parent="Senha/VBoxContainer/Password/Crystal4" instance=ExtResource( 16 )]
+stream = ExtResource( 15 )
 
 [node name="Crystal5" type="TextureButton" parent="Senha/VBoxContainer/Password"]
 margin_left = 272.0
@@ -328,10 +479,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fade = SubResource( 1 )
-anims/SwipeLeft = SubResource( 2 )
-anims/SwipeRight = SubResource( 3 )
+[node name="Audio" parent="Senha/VBoxContainer/Password/Crystal5" instance=ExtResource( 16 )]
+stream = ExtResource( 15 )
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="button_up" from="Poderes/VBoxContainer/HBoxContainer/MainCrystal/MainCrystal" to="." method="_on_MainCrystal_button_up"]
-[connection signal="button_up" from="Poderes/VBoxContainer/HBoxContainer/ExtraCrystal/ExtraCrystal" to="." method="_on_MainCrystal_button_up"]
+[connection signal="button_up" from="Poderes/VBoxContainer/HBoxContainer/ExtraCrystal/ExtraCrystal" to="." method="_on_ExtraCrystal_button_up"]
+[connection signal="victory" from="Senha/VBoxContainer/Password" to="." method="_on_Password_victory"]
+[connection signal="color_changed" from="Senha/VBoxContainer/Password/Crystal1" to="Senha/VBoxContainer/Password" method="color_changed"]
+[connection signal="color_changed" from="Senha/VBoxContainer/Password/Crystal2" to="Senha/VBoxContainer/Password" method="color_changed"]
+[connection signal="color_changed" from="Senha/VBoxContainer/Password/Crystal3" to="Senha/VBoxContainer/Password" method="color_changed"]
+[connection signal="color_changed" from="Senha/VBoxContainer/Password/Crystal4" to="Senha/VBoxContainer/Password" method="color_changed"]
+[connection signal="color_changed" from="Senha/VBoxContainer/Password/Crystal5" to="Senha/VBoxContainer/Password" method="color_changed"]
