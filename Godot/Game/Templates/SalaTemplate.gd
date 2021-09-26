@@ -4,27 +4,33 @@ var id
 onready var game = get_parent().get_parent()
 enum { LEFT, RIGHT, UP, DOWN, NOTHING}
 
+export(AudioStream) var door_sound
+
+func play_door_sound():
+	AudioManager.stream = door_sound
+	AudioManager.play()
+
 func _on_PortaEsquerda_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton and event.pressed):
-		$Audio.play()
+		play_door_sound()
 		game.change_room(game.arrow_to_room(LEFT,id))
 
 
 func _on_PortaDireita_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton and event.pressed):
-		$Audio.play()
+		play_door_sound()
 		game.change_room(game.arrow_to_room(RIGHT,id))
 
 
 func _on_PortaSuperior_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton and event.pressed):
-		$Audio.play()
+		play_door_sound()
 		game.change_room(game.arrow_to_room(UP,id))
 
 
 func _on_PortaInferior_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton and event.pressed):
-		$Audio.play()
+		play_door_sound()
 		game.change_room(game.arrow_to_room(DOWN,id))
 
 

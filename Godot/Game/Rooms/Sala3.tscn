@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/Templates/SalaTemplateClosed.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Objects/Planet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Objects/Torch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Rooms/Sala.gd" type="Script" id=44]
 [ext_resource path="res://Assets/Sprites/Rugs/RugDown.png" type="Texture" id=45]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=46]
@@ -38,4 +39,7 @@ __meta__ = {
 }
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-position = Vector2( 367.267, 175.759 )
+position = Vector2( 386, 210 )
+
+[node name="Torch" parent="." instance=ExtResource( 3 )]
+position = Vector2( 337.119, 188.787 )

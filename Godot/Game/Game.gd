@@ -41,7 +41,7 @@ func change_room(next_room):
 	# create new room
 	var new_instance = rooms[next_room-1].instance()
 	add_child(new_instance)
-	move_child(new_instance, get_child_count()-1)
+	move_child(new_instance, get_child_count()-3)
 	current_room_scene = new_instance
 	if Global.jogador == 1:
 		new_instance.setup(rugs[arrows[next_room-1]], next_room)
